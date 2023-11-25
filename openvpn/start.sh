@@ -3,13 +3,13 @@
 set -e
 
 # check for presence of tun0 interface
-check_network=$(ifconfig | grep tun0 || true)
-if [[ -z "${check_network}" ]]; then
+check_network_tun=$(ifconfig | grep tun0 || true)
+if [[ -z "${check_network_tun}" ]]; then
         echo "Creating tun0 interface so openvpn can properly establish a vpn tunnel connection." | ts '%Y-%m-%d %H:%M:%.S'
 	mkdir /dev/net && mknod /dev/net/tun c 10 200 && chmod 666 /dev/net/tun
         # Sleep so it wont 'spam restart'
         sleep 10
-        exit 1
+        exit 0
 fi
 
 # check for presence of network interface docker0
