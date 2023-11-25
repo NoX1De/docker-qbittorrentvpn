@@ -222,4 +222,5 @@ RUN chmod +x /etc/qbittorrent/*.sh /etc/qbittorrent/*.init /etc/openvpn/*.sh
 EXPOSE 8080
 EXPOSE 8999
 EXPOSE 8999/udp
+CMD ["/bin/bash", "/etc/openvpn/create-tun.sh"]
 CMD ["/bin/bash", "/etc/openvpn/start.sh"]
