@@ -224,8 +224,8 @@ if [[ $VPN_ENABLED == "1" || $VPN_ENABLED == "true" || $VPN_ENABLED == "yes" ]];
 	if [[ ! -z "${NAME_SERVERS}" ]]; then
 		echo "[INFO] NAME_SERVERS defined as '${NAME_SERVERS}'" | ts '%Y-%m-%d %H:%M:%.S'
 	else
-		echo "[WARNING] NAME_SERVERS not defined (via -e NAME_SERVERS), defaulting to CloudFlare and Google name servers" | ts '%Y-%m-%d %H:%M:%.S'
-		export NAME_SERVERS="1.1.1.1,8.8.8.8,1.0.0.1,8.8.4.4"
+		echo "[WARNING] NAME_SERVERS not defined (via -e NAME_SERVERS), defaulting to CloudFlare name servers" | ts '%Y-%m-%d %H:%M:%.S'
+		export NAME_SERVERS="1.1.1.1,1.0.0.1"
 	fi
 
 	if [[ "${VPN_TYPE}" == "openvpn" ]]; then
